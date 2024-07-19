@@ -7,39 +7,6 @@ import { GameEngine } from 'react-native-game-engine';
 import { Accelerometer } from 'expo-sensors';
 import Matter from 'matter-js';
 
-// Snake.js
-const Snake = (props) => {
-  return (
-    <View 
-      style={{
-        position: 'absolute',
-        left: props.position[0],
-        top: props.position[1],
-        width: props.size[0],
-        height: props.size[1],
-        backgroundColor: 'green',
-      }}
-    />
-  );
-};
-
-// Food.js
-const Food = (props) => {
-  return (
-    <View 
-      style={{
-        position: 'absolute',
-        left: props.position[0],
-        top: props.position[1],
-        width: props.size[0],
-        height: props.size[1],
-        backgroundColor: 'red',
-      }}
-    />
-  );
-};
-
-// snakeGameEngine.js
 const { width, height } = Dimensions.get('window');
 const GRID_SIZE = 20;
 const CELL_SIZE = Math.floor(width / GRID_SIZE);
@@ -110,6 +77,36 @@ const snakeGameEngine = () => {
   Matter.Events.on(engine, 'afterUpdate', update);
 
   return entities;
+};
+
+const Snake = (props) => {
+  return (
+    <View 
+      style={{
+        position: 'absolute',
+        left: props.position[0],
+        top: props.position[1],
+        width: props.size[0],
+        height: props.size[1],
+        backgroundColor: 'green',
+      }}
+    />
+  );
+};
+
+const Food = (props) => {
+  return (
+    <View 
+      style={{
+        position: 'absolute',
+        left: props.position[0],
+        top: props.position[1],
+        width: props.size[0],
+        height: props.size[1],
+        backgroundColor: 'red',
+      }}
+    />
+  );
 };
 
 export default function App() {
